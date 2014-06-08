@@ -19,8 +19,32 @@ module triforce_triangle(length)
 		equilateral_triangle(length);
 }
 
-difference()
+module triforce(len, innerlen)
 {
-	triforce_triangle(50);
-	triforce_triangle(30);
+	difference()
+	{
+		triforce_triangle(len);
+		triforce_triangle(innerlen);
+	}
 }
+
+
+len = 50;
+innerlen = 30;
+h = len * base2height;
+
+
+triforce(len, innerlen);
+
+
+/*
+translate([-len/2,-h/3,0])
+	triforce(len, innerlen);
+
+translate([len/2,-h/3,0])
+	triforce(len, innerlen);
+
+translate([0,2*h/3,0])
+	triforce(len, innerlen);
+
+*/
